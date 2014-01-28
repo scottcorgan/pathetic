@@ -19,7 +19,7 @@ var routes = pathetic({
   }
 });
 
-var p = routes('/path'); // OUTPUS: 'value'
+var p = routes('/path'); // OUTPUTS: 'value'
 var userPath = routes('/user/123');
 
 userPath.value(req, res);
@@ -30,7 +30,7 @@ console.log(userPath.params.id == 123_;
 
 ### pathetic(paths)
 
-* `paths` - a key/value object containing the paths as the keys and anything for the values. This returns a method that let's you query against the table with a path. This uses Express-like paths and breaks out the parameters for your as well.
+* `paths` - a key/value object containing the paths as the keys and anything for the values. This returns a method that lets you query against the table with a path. This uses Express-like paths and breaks out the parameters for your as well.
 
 
 ## Run Tests
