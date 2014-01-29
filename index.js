@@ -1,6 +1,7 @@
 var merge = require('merge');
 var zipObject = require('zip-object');
 var pathToRegexp = require('path-to-regexp');
+var clone = require('clone');
 
 var pathetic = function (table) {
   return function (pathname) {
@@ -15,14 +16,17 @@ var pathetic = function (table) {
     for(i; i < len; i += 1) {
       key = keys[i];
       rexp = pathToRegexp(key, paramKeys);
+      matches = pathname.match(rexp);
       
-      if (pathname.match(rexp)) {
-        paramValues = pathname.match(rexp).slice(1);
+      if (matches) {
+        paramValues = matches.slice(1);
         
-        return {
-          value: table[key],
-          params: zipObject(pluck(paramKeys, 'name'), paramValues)
-        }
+        var value = clone(table[key]);
+        value.params = function () {
+          return zipObject(pluck(paramKeys, 'name'), paramValues)
+        };
+        
+        return value;
       }
     }
   };

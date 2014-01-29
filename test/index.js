@@ -4,25 +4,21 @@ var expect = require('expect.js');
 describe('pathetic', function() {
   it('matches a simple path', function () {
     var paths = pathetic({
-      '/path': 'value'
+      '/path': {key: 'value'}
     });
     
-    expect(paths('/path')).to.eql({
-      value: 'value',
-      params: {}
-    });
+    expect(paths('/path').key).to.equal('value');
+    expect(paths('/path').params()).to.eql({});
   });
   
   it('matches a path with a key', function () {
     var paths = pathetic({
-      '/user/:id': 'user with id'
+      '/user/:id': {user: 'id'}
     });
     
-    expect(paths('/user/123')).to.eql({
-      value: 'user with id',
-      params: {
-        id: 123
-      }
+    expect(paths('/user/123').user).to.equal('id');
+    expect(paths('/user/123').params()).to.eql({
+      id: 123
     });
   });
 });

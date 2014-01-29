@@ -13,17 +13,17 @@ npm install pathetic --save
 ```js
 var pathetic = require('pathetic');
 var routes = pathetic({
-  '/path': 'value',
+  '/path': {key: 'value'},
   '/user/:id': function (req, res) {
     res.end('GOT IT!')
   }
 });
 
-var p = routes('/path'); // OUTPUTS: 'value'
+var p = routes('/path'); // OUTPUTS: {key: 'value'}
 var userPath = routes('/user/123');
 
-userPath.value(req, res);
-console.log(userPath.params.id == 123_;
+userPath(req, res);
+console.log(userPath.params().id == 123);
 ```
 
 ## API
