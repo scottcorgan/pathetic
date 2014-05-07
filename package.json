@@ -1,6 +1,6 @@
 {
   "name": "pathetic",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Get values by path-like keys",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
     "expect.js": "~0.2.0"
   },
   "dependencies": {
-    "path-to-regexp": "0.0.2",
+    "path-to-regexp": "0.1.x",
     "merge": "~1.1.2",
     "zip-object": "~0.1.0",
     "clone": "~0.1.11"
