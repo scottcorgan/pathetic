@@ -7,8 +7,8 @@ describe('pathetic', function() {
       '/path': {key: 'value'}
     });
     
-    expect(paths('/path').key).to.equal('value');
-    expect(paths('/path').params()).to.eql({});
+    expect(paths('/path').value.key).to.equal('value');
+    expect(paths('/path').params).to.eql({});
   });
   
   it('matches a path with a key', function () {
@@ -16,8 +16,8 @@ describe('pathetic', function() {
       '/user/:id': {user: 'id'}
     });
     
-    expect(paths('/user/123').user).to.equal('id');
-    expect(paths('/user/123').params()).to.eql({
+    expect(paths('/user/123').value.user).to.equal('id');
+    expect(paths('/user/123').params).to.eql({
       id: 123
     });
   });

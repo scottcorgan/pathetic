@@ -21,12 +21,11 @@ var pathetic = function (table) {
       if (matches) {
         paramValues = matches.slice(1);
         
-        var value = clone(table[key]);
-        value.params = function () {
-          return zipObject(pluck(paramKeys, 'name'), paramValues)
+        return {
+          key: key,
+          value: clone(table[key]),
+          params: zipObject(pluck(paramKeys, 'name'), paramValues)
         };
-        
-        return value;
       }
     }
   };
