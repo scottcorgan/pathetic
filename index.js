@@ -12,15 +12,20 @@ var pathetic = function (table) {
     var paramValues = [];
     var key;
     var rexp;
-    
+
     for(i; i < len; i += 1) {
+
+      //reset the values for paramKeys and paramValues from last iteration
+      paramKeys = [];
+      paramValues = [];
+
       key = keys[i];
       rexp = pathToRegexp(key, paramKeys);
       matches = pathname.match(rexp);
-      
+
       if (matches) {
         paramValues = matches.slice(1);
-        
+
         return {
           key: key,
           value: clone(table[key]),
@@ -33,7 +38,7 @@ var pathetic = function (table) {
 
 function pluck (arr, key) {
   return arr.map(mapper);
-  
+
   function mapper (item) {
     return item[key];
   }
