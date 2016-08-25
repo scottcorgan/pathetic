@@ -1,6 +1,6 @@
 {
   "name": "pathetic",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "description": "Get values by path-like keys",
   "main": "index.js",
   "scripts": {
