@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "path-to-regexp": "0.1.x",
-    "merge": "~1.1.2",
+    "merge": ">=2.1.1",
     "zip-object": "~0.1.0",
     "clone": "~0.1.11"
   }
